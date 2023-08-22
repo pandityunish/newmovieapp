@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movieapp/common/route.dart';
-import 'package:movieapp/common/splash_screen.dart';
-import 'package:movieapp/feauters/favoutite/respository/favourite_repository.dart';
-import 'package:movieapp/feauters/home/repository/home_repository.dart';
-import 'package:movieapp/feauters/login/repository/login_repository.dart';
-import 'package:movieapp/feauters/login/widgets/user_provider.dart';
+import 'package:movieapp/common/constant/route.dart';
+import 'package:movieapp/common/screens/splash_screen.dart';
+import 'package:movieapp/features/favoutite/respository/favourite_repository.dart';
+import 'package:movieapp/features/home/repository/home_repository.dart';
+
 import 'package:provider/provider.dart';
 
 void main() {
@@ -18,8 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => LoginRepsitory()),
-        ChangeNotifierProvider(create: (_) => UserProvider()),
+        // ChangeNotifierProvider(create: (_) => LoginRepsitory()),
+        // ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => Homerepository()),
         ChangeNotifierProvider(create: (_) => FavouriteRepository())
       ],
@@ -29,6 +28,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.dark,
         theme: ThemeData(
+          searchViewTheme: SearchViewThemeData(backgroundColor: Colors.black),
             scaffoldBackgroundColor: Colors.black,
             bottomNavigationBarTheme: const BottomNavigationBarThemeData(
                 backgroundColor: Colors.red)),
