@@ -17,14 +17,14 @@ class Homerepository with ChangeNotifier {
           'Content-Type': 'application/json',
         },
       );
-     
+     if(context.mounted) {
       handlinghttprequest(
           res: res,
           callback: () {
             print(res.body);
           movies=movieFromJson(res.body);
           },
-          context: context);
+          context: context);}
     } catch (e) {
       showsnackbar(e.toString(), context);
     }
